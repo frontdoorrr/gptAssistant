@@ -22,10 +22,26 @@ class GPTAssistant:
             assistant_id=assistant_id,
         )
 
-    def send_message(self, thread_id, content, role="user"):
-        return
+    def send_message(
+        self,
+        thread_id,
+        content,
+        role="user",
+    ):
+        message = self.client.beta.threads.messages.create(
+            thread_id=thread_id,
+            content=content,
+            role=role,
+        )
+        return message
 
     def retrieve_messages(
         self,
+        thread_id,
+        run_id,
     ):
-        return
+        run = self.client.beta.threads.runs.retrieve(
+            thread_id=thread_id,
+            run_id=run_id,
+        )
+        return run
