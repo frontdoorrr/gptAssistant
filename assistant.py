@@ -14,8 +14,17 @@ class GPTAssistant:
         self.client = ""
         pass
 
-    def create_assistant(self):
-        self.client.beta.assistants.create()
+    def create_assistant(
+        self,
+        name,
+        instructions,
+        tools=[{"type": "retrieval"}, {"type": "code_interpreter"}],
+    ):
+        self.client.beta.assistants.create(
+            name=name,
+            instructions=instructions,
+            tools=tools,
+        )
 
     def get_assistant(self, assistant_id):
         return self.client.beta.assistants.retrieve(
