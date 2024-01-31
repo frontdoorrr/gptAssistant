@@ -58,9 +58,6 @@ assistant = client.beta.assistants.create(
         {
             "type": "code_interpreter",
         },
-        # {
-        #     "type": "function",
-        # },
     ],
     file_ids=file_ids,
     model="gpt-4-1106-preview",
